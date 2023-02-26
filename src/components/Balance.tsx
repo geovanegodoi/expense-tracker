@@ -4,10 +4,8 @@ import React from "react";
 export default function Balance() {
     return (
         <React.Fragment>
-            <Typography variant="h6">Your Balance</Typography>
-            <Typography variant="h3" id="balance" fontWeight="bold" border="0">
-                $0.00
-            </Typography>
+            <h4>Your Balance</h4>
+            <h1 id="balance">$0.00</h1>
         </React.Fragment>
     );
 }
