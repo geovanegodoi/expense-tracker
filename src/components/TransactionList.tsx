@@ -1,22 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
+import { GlobalContext } from "../contexts/GlobalState";
+import Transaction from "./Transaction";
 
 export default function TransactionList() {
+    const { transactions, deleteTransaction } = useContext(GlobalContext);
     return (
         <React.Fragment>
             <h3>History</h3>
-            <ul id="list" className="list">
-                <li className="minus">
-                    Cash <span>-$400</span>
-                    <button className="delete-btn">x</button>
-                </li>
-                <li className="plus">
-                    Cash <span>-$400</span>
-                    <button className="delete-btn">x</button>
-                </li>
-                <li className="minus">
-                    Cash <span>-$400</span>
-                    <button className="delete-btn">x</button>
-                </li>
+            <ul className="list">
+                {transactions?.map((item) => (
+                    <Transaction
+                        key={item.id}
+                        transaction={item}
+                        handleDelete={deleteTransaction}
+                    />
+                ))}
             </ul>
         </React.Fragment>
     );

@@ -1,22 +1,22 @@
-import { Box } from "@mui/material";
 import React from "react";
 import AddTransaction from "./components/AddTransaction";
 import Balance from "./components/Balance";
 import Header from "./components/Header";
 import IncomeExpenses from "./components/IncomeExpenses";
 import TransactionList from "./components/TransactionList";
+import { GlobalProvider } from "./contexts/GlobalState";
 
 function App() {
     return (
-        <Box className="App">
+        <GlobalProvider>
             <Header />
-            <Box className="container">
+            <div className="container">
                 <Balance />
                 <IncomeExpenses />
                 <TransactionList />
                 <AddTransaction />
-            </Box>
-        </Box>
+            </div>
+        </GlobalProvider>
     );
 }
 
